@@ -9,3 +9,9 @@ Para a API, quero usar o Nest.js apenas como uma camada que conecta ao mundo ext
 Para o client, quero brincar bastante com as animações, deixar ele cheio de frufru que encha os olhos dos usuários.
 
 A ideia é que ao final do projeto, ele tenha as mesmas features do projeto original, mas sendo uma aplicação totalmente diferente.
+
+## Desafios
+
+### Hospedagem
+
+O curso.dev usa a Vercel para hospedar o projeto, que de inicio deu erro ao tentar fazer build do projeto Nest.js. Durante as buscas por soluções, vi um comentário de que a inicialização do projeto Nest.js é muito lenta, então optei por hospedar na Render, que tem um plano gratuito e já usei anteriormente.
