@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Projetinho do curso.dev",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
