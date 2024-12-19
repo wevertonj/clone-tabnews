@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { addAlias } from 'module-alias';
 import { resolve } from 'path';
 
-const isDev = process.env.NODE_ENV === 'DEV';
+const isDev = process.env.APP_ENV === 'development';
 addAlias('@', resolve(isDev ? 'src' : 'dist'));
 
 import { NestFactory } from '@nestjs/core';
