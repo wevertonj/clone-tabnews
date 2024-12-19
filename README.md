@@ -10,6 +10,39 @@ Para o client, quero brincar bastante com as animações, deixar ele cheio de fr
 
 A ideia é que ao final do projeto, ele tenha as mesmas features do projeto original, mas sendo uma aplicação totalmente diferente.
 
+## Instalação
+
+Clone o repositório e entre na pasta do projeto.
+
+```bash
+git clone git@github.com:wevertonj/clone-tabnews.git
+cd clone-tabnews
+```
+
+Instale as dependências do projeto.
+
+```bash
+npm install
+```
+
+Os imports deste projetos utilizam `module-alias` e para que ele obtenha os caminhos corretos, é preciso adicionar a seguinte variável de ambiente.
+
+```bash
+APP_ENV=development
+```
+
+Esta variável só é necessária para o ambiente de desenvolvimento, pois a validação feita em `src/main.ts` verifica apenas se o valor é igual a `development`.
+
+Na raiz do projeto há um arquivo `.env.example`, que pode ser usado para criar um arquivo `.env` com as variáveis de ambiente necessárias.
+
+## Execução
+
+Para executar o projeto, use o comando `start`.
+
+```bash
+npm start
+```
+
 ## Desafios
 
 ### Hospedagem
