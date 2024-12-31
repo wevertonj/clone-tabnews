@@ -43,4 +43,4 @@ npm start
 
 ### Hospedagem
 
-O curso.dev usa a Vercel para hospedar o projeto, que de inicio deu erro ao tentar fazer build do projeto Nest.js. Durante as buscas por soluções, vi um comentário de que a inicialização do projeto Nest.js é muito lenta, então optei por hospedar na Render, que tem um plano gratuito e já usei anteriormente.
+O curso.dev usa a Vercel para hospedar o projeto, que de inicio deu erro ao tentar fazer build do projeto Nest.js. Durante as buscas por soluções, vi um comentário de que a inicialização do projeto Nest.js é muito lenta, então optei por hospedar na Railway.
