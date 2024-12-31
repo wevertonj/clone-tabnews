@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import { addAlias } from 'module-alias';
+import * as dotenv from 'dotenv';
 
 addAlias('@', 'dist');
 
@@ -9,6 +10,7 @@ import { VersioningType } from '@nestjs/common';
 import { FastifyAdapter } from '@nestjs/platform-fastify';
 import { extractor } from '@/shared/utils';
 
+dotenv.config();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, new FastifyAdapter());
