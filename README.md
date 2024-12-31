@@ -25,16 +25,6 @@ Instale as dependências do projeto.
 npm install
 ```
 
-Os imports deste projetos utilizam `module-alias` e para que ele obtenha os caminhos corretos, é preciso adicionar a seguinte variável de ambiente.
-
-```bash
-APP_ENV=development
-```
-
-Esta variável só é necessária para o ambiente de desenvolvimento, pois a validação feita em `src/main.ts` verifica apenas se o valor é igual a `development`.
-
-Na raiz do projeto há um arquivo `.env.example`, que pode ser usado para criar um arquivo `.env` com as variáveis de ambiente necessárias.
-
 ## Execução
 
 Para executar o projeto, use o comando `start`.

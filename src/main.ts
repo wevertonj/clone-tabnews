@@ -1,9 +1,7 @@
 import 'reflect-metadata';
 import { addAlias } from 'module-alias';
-import { resolve } from 'path';
 
-const isDev = process.env.APP_ENV === 'development';
-addAlias('@', resolve(isDev ? 'src' : 'dist'));
+addAlias('@', 'dist');
 
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
