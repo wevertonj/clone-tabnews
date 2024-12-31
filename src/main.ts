@@ -7,13 +7,12 @@ addAlias('@', 'dist');
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { VersioningType } from '@nestjs/common';
-import { FastifyAdapter } from '@nestjs/platform-fastify';
 import { extractor } from '@/shared/utils';
 
 dotenv.config();
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, new FastifyAdapter());
+  const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
   app.enableVersioning({
     type: VersioningType.CUSTOM,
