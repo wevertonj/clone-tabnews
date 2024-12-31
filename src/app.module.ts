@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from '@/app.controller';
 import { AppService } from '@/app.service';
-import { StatusModule } from '@/v1/status/status.module';
+import { StatusModule } from '@/modules/status/status.module';
 
 @Module({
   imports: [StatusModule],

@@ -1,13 +1,15 @@
-import { StatusService } from '@/v1/status/status.service';
+import { StatusService } from '@/modules/status/status.service';
 import { Controller, Get } from '@nestjs/common';
 
-@Controller('status')
+@Controller({
+  version: '1',
+})
 export class StatusController {
   constructor(
     private readonly statusService: StatusService
   ) { }
 
-  @Get()
+  @Get('status')
   getStatus() {
     return this.statusService.getStatus();
   }
