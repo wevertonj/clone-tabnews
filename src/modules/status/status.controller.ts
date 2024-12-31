@@ -1,5 +1,5 @@
 import { StatusService } from '@/modules/status/status.service';
-import { Controller, Get, Version } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 
 @Controller({
   version: '1',
@@ -12,11 +12,5 @@ export class StatusController {
   @Get('status')
   getStatus() {
     return this.statusService.getStatus();
-  }
-
-  @Version('2')
-  @Get('status')
-  getStatusV2() {
-    return this.statusService.getStatusV2();
   }
 }
