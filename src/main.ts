@@ -20,6 +20,6 @@ async function bootstrap() {
     extractor,
     defaultVersion: process.env.DEFAULT_VERSION ?? '1',
   });
-  await app.listen(process.env.PORT ?? 3000);
+  await app.listen(process.env.PORT ?? 3000, '0.0.0.0');
 }
 void bootstrap();
