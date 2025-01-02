@@ -30,6 +30,28 @@ npm install
 Na raiz do projeto há um arquivo `.env.example`, que pode ser usado para criar um arquivo `.env` com as variáveis de ambiente necessárias.
 
 - `DEFAULT_VERSION`: Versão padrão da API. Deve ser um número inteiro. Ela também será a versão minima suportada pela API. Isto significa que se o client passar no header `x-api-version` um valor menor que o `DEFAULT_VERSION`, a API retornará `404`. Ao passar um valor maior, a API retornará a versão mais recente disponível para o endpoint. O valor padrão é `1`.
+- `DATABASE_NAME`: Nome do banco de dados.*
+- `DATABASE_USERNAME`: Usuário do banco de dados.*
+- `DATABASE_PASSWORD`: Senha do banco de dados.*
+- `DATABASE_PORT`: Porta do banco de dados.*
+
+\* Estas variáveis são usadas para conectar ao banco de dados PostgreSQL.
+
+## Docker
+
+Há um arquivo `src/shared/infra/compose.yaml` que pode ser usado para subir um container com o banco de dados PostgreSQL.
+
+Para facilitar a execução, há o seguinte script para subir o container.
+
+```bash
+npm run docker:up
+```
+
+Para derrubar o container, use o seguinte script.
+
+```bash
+npm run docker:down
+```
 
 ## Execução
 
