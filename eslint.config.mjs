@@ -36,6 +36,7 @@ export default tseslint.config({
       '@stylistic/eslint-plugin-ts/consistent-type-definitions': 'off',
       '@stylistic/eslint-plugin-ts/no-extraneous-class': 'off',
       '@stylistic/eslint-plugin-ts/quotes': ['error', 'single'],
+      '@typescript-eslint/no-explicit-any': 'off'
     },
   },
 );
