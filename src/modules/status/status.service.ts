@@ -7,26 +7,26 @@ import { isRight } from 'fp-ts/lib/Either';
 export class StatusService {
   async getStatus(): Promise<StatusJson> {
     const database = new Database();
-    const versionResult = await database.getVersion();
-    const maxConnectionsResult = await database.getMaxConnections();
-    const activeConnectionsResult = await database.getActiveConnections();
+    const databaseVersionResult = await database.getVersion();
+    const databaseMaxConnectionsResult = await database.getMaxConnections();
+    const databaseActiveConnectionsResult = await database.getActiveConnections();
 
     let statusType: StatusType = StatusType.ERROR;
     let version: string = '';
     let maxConnections: number = 0;
     let activeConnections: number = 0;
 
-    if (isRight(versionResult)) {
-      version = versionResult.right;
+    if (isRight(databaseVersionResult)) {
+      version = databaseVersionResult.right;
       statusType = StatusType.OK;
     }
 
-    if (isRight(maxConnectionsResult)) {
-      maxConnections = maxConnectionsResult.right;
+    if (isRight(databaseMaxConnectionsResult)) {
+      maxConnections = databaseMaxConnectionsResult.right;
     }
 
-    if (isRight(activeConnectionsResult)) {
-      activeConnections = activeConnectionsResult.right;
+    if (isRight(databaseActiveConnectionsResult)) {
+      activeConnections = databaseActiveConnectionsResult.right;
     }
 
     const updatedAt = new Date().toISOString();
