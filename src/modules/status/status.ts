@@ -41,8 +41,8 @@ export class Status {
         database: {
           status: this.postgresStatus,
           version: this.postgresVersion,
-          maxConnections: this.postgresMaxConnections,
-          activeConnections: this.postgresActiveConnections,
+          max_connections: this.postgresMaxConnections,
+          opened_connections: this.postgresActiveConnections,
         }
       }
     };

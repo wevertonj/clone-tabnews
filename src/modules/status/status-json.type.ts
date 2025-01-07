@@ -6,8 +6,8 @@ export type StatusJson = {
     database: {
       status: StatusType;
       version: string;
-      maxConnections: number;
-      activeConnections: number;
+      max_connections: number;
+      opened_connections: number;
     };
   };
 };

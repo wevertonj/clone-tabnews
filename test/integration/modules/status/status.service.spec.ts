@@ -39,14 +39,15 @@ describe('Status endpoint', () => {
     expect(responseBody.dependencies.database.version).toMatch(versionRegex);
   });
 
-  it('GET to /api/status should return a valid dependencies.database.maxConnections field', () => {
-    expect(responseBody.dependencies.database.maxConnections).toBeDefined();
-    expect(responseBody.dependencies.database.maxConnections).toBeGreaterThan(0);
+  it('GET to /api/status should return a valid dependencies.database.max_connections field', () => {
+    expect(responseBody.dependencies.database.max_connections).toBeDefined();
+    expect(responseBody.dependencies.database.max_connections).toBeGreaterThan(0);
   });
 
-  it('GET to /api/status should return a valid dependencies.database.activeConnections', () => {
-    expect(responseBody.dependencies.database.activeConnections).toBeDefined();
-    expect(responseBody.dependencies.database.activeConnections).toBeGreaterThan(0);
+  it('GET to /api/status should return a valid dependencies.database.opened_connections', () => {
+    expect(responseBody.dependencies.database.opened_connections).toBeDefined();
+    expect(responseBody.dependencies.database.opened_connections).toBeGreaterThan(0);
+    console.log(responseBody.dependencies.database.opened_connections);
   });
 
 });
