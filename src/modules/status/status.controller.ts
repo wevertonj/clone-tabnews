@@ -1,3 +1,4 @@
+import { StatusJson } from '@/modules/status';
 import { StatusService } from '@/modules/status/status.service';
 import { Controller, Get } from '@nestjs/common';
 
@@ -10,7 +11,7 @@ export class StatusController {
   ) { }
 
   @Get('status')
-  getStatus() {
+  getStatus(): Promise<StatusJson> {
     return this.statusService.getStatus();
   }
 }
