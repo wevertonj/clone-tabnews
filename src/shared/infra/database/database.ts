@@ -17,23 +17,26 @@ interface ActiveConnectionsResult {
 
 export class Database {
   private pool: Pool;
+  private databaseName: string;
 
   constructor() {
     dotenv.config();
 
+    this.databaseName = process.env.POSTGRES_DB ?? '';
+
     this.pool = new Pool({
       host: process.env.DATABASE_HOST,
-      database: process.env.POSTGRES_DB,
+      database: this.databaseName,
       user: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       port: Number(process.env.POSTGRES_PORT),
     });
   }
 
-  async query({ query }: { query: string; }): Promise<QueryResult<any>> {
+  async query({ query, values }: { query: string; values?: any[]; }): Promise<QueryResult<any>> {
     const client = await this.pool.connect();
     try {
-      const result = await client.query(query);
+      const result = await client.query(query, values);
       return result;
     } finally {
       client.release();
@@ -75,8 +78,9 @@ export class Database {
   }
 
   async getActiveConnections(): Promise<Either<DatabaseNotFoundError, number>> {
-    const query = 'SELECT COUNT(*) FROM pg_stat_activity WHERE datname = current_database()';
-    const result = await this.query({ query });
+    const databaseName = this.databaseName;
+    const query = 'SELECT COUNT(*) FROM pg_stat_activity WHERE datname = $1;';
+    const result = await this.query({ query, values: [databaseName] });
 
     const row = result.rows[0] as ActiveConnectionsResult;
 
