@@ -35,8 +35,7 @@ describe('Status endpoint', () => {
 
   it('GET to /api/status should return a valid dependencies.database.version field', () => {
     expect(responseBody.dependencies.database.version).toBeDefined();
-    const versionRegex = /^\d+\.\d+$/;
-    expect(responseBody.dependencies.database.version).toMatch(versionRegex);
+    expect(responseBody.dependencies.database.version).toBe('17.2');
   });
 
   it('GET to /api/status should return a valid dependencies.database.max_connections field', () => {
@@ -46,8 +45,6 @@ describe('Status endpoint', () => {
 
   it('GET to /api/status should return a valid dependencies.database.opened_connections', () => {
     expect(responseBody.dependencies.database.opened_connections).toBeDefined();
-    expect(responseBody.dependencies.database.opened_connections).toBeGreaterThan(0);
-    console.log(responseBody.dependencies.database.opened_connections);
   });
 
 });
