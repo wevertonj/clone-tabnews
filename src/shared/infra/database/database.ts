@@ -75,7 +75,7 @@ export class Database {
   }
 
   async getActiveConnections(): Promise<Either<DatabaseNotFoundError, number>> {
-    const query = 'SELECT COUNT(*) FROM pg_stat_activity';
+    const query = 'SELECT COUNT(*) FROM pg_stat_activity WHERE datname = current_database()';
     const result = await this.query({ query });
 
     const row = result.rows[0] as ActiveConnectionsResult;
