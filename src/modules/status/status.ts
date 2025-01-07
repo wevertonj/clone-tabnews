@@ -38,7 +38,7 @@ export class Status {
     return {
       updated_at: this.updatedAt,
       dependencies: {
-        postgres: {
+        database: {
           status: this.postgresStatus,
           version: this.postgresVersion,
           maxConnections: this.postgresMaxConnections,

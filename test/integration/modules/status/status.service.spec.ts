@@ -24,29 +24,29 @@ describe('Status endpoint', () => {
     expect(responseBody.dependencies).toBeDefined();
   });
 
-  it('GET to /api/status should return a valid dependencies.postgres field', () => {
-    expect(responseBody.dependencies.postgres).toBeDefined();
+  it('GET to /api/status should return a valid dependencies.database field', () => {
+    expect(responseBody.dependencies.database).toBeDefined();
   });
 
-  it('GET to /api/status should return a valid dependencies.postgres.status field', () => {
-    expect(responseBody.dependencies.postgres.status).toBeDefined();
-    expect(responseBody.dependencies.postgres.status).toBe(StatusType.OK);
+  it('GET to /api/status should return a valid dependencies.database.status field', () => {
+    expect(responseBody.dependencies.database.status).toBeDefined();
+    expect(responseBody.dependencies.database.status).toBe(StatusType.OK);
   });
 
-  it('GET to /api/status should return a valid dependencies.postgres.version field', () => {
-    expect(responseBody.dependencies.postgres.version).toBeDefined();
+  it('GET to /api/status should return a valid dependencies.database.version field', () => {
+    expect(responseBody.dependencies.database.version).toBeDefined();
     const versionRegex = /^\d+\.\d+$/;
-    expect(responseBody.dependencies.postgres.version).toMatch(versionRegex);
+    expect(responseBody.dependencies.database.version).toMatch(versionRegex);
   });
 
-  it('GET to /api/status should return a valid dependencies.postgres.maxConnections field', () => {
-    expect(responseBody.dependencies.postgres.maxConnections).toBeDefined();
-    expect(responseBody.dependencies.postgres.maxConnections).toBeGreaterThan(0);
+  it('GET to /api/status should return a valid dependencies.database.maxConnections field', () => {
+    expect(responseBody.dependencies.database.maxConnections).toBeDefined();
+    expect(responseBody.dependencies.database.maxConnections).toBeGreaterThan(0);
   });
 
-  it('GET to /api/status should return a valid dependencies.postgres.activeConnections', () => {
-    expect(responseBody.dependencies.postgres.activeConnections).toBeDefined();
-    expect(responseBody.dependencies.postgres.activeConnections).toBeGreaterThan(0);
+  it('GET to /api/status should return a valid dependencies.database.activeConnections', () => {
+    expect(responseBody.dependencies.database.activeConnections).toBeDefined();
+    expect(responseBody.dependencies.database.activeConnections).toBeGreaterThan(0);
   });
 
 });
