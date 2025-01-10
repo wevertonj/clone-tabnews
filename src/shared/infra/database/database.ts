@@ -30,7 +30,6 @@ export class Database {
       user: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       port: Number(process.env.POSTGRES_PORT),
-      ssl: process.env.NODE_ENV === 'production' ? true : false,
     });
   }
 
