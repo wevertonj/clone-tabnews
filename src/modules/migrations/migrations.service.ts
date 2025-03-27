@@ -7,7 +7,7 @@ export class MigrationsService {
     const dryRun = method === 'GET';
 
     const migrations = await migrationRunner({
-      databaseUrl: process.env.DATABASE_URL as string,
+      databaseUrl: process.env.DATABASE_HOST as string,
       dryRun: dryRun,
       dir: 'src/shared/infra/migrations',
       direction: 'up',
