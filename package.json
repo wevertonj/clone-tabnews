@@ -37,7 +37,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-fastify": "^10.4.15",
     "dotenv": "^16.4.7",
-    "fastify": "^5.2.0",
+    "fastify": "^5.3.2",
     "fp-ts": "^2.16.9",
     "module-alias": "^2.2.3",
     "node-pg-migrate": "^7.9.0",
