@@ -1,0 +1,12 @@
+# Basic dependabot.yml file with
+# minimum configuration for Dart pub
+
+version: 2
+updates:
+  # Enable version updates for pub (Dart)
+  - package-ecosystem: "pub"
+    # Look for pubspec.yaml in the root directory
+    directory: "/"
+    # Check the pub.dev registry for updates every week
+    schedule:
+      interval: "weekly"
