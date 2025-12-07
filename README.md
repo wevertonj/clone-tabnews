@@ -26,8 +26,33 @@ dart pub get
 Para executar o projeto em modo de desenvolvimento:
 
 ```bash
-dart run bin/main.dart
+dart run build_runner build --delete-conflicting-outputs
+dart run bin/server.dart
 ```
+
+## Deploy na Railway
+
+### Configuração Inicial
+
+1. Crie uma conta em [railway.app](https://railway.app) (se ainda não tiver)
+2. Crie um novo projeto: **New Project > Deploy from GitHub repo**
+3. Selecione o repositório `clone-tabnews`
+4. A Railway vai detectar automaticamente o `Dockerfile`
+
+### Variáveis de Ambiente (Opcional)
+
+No painel da Railway, você pode configurar variáveis de ambiente se necessário:
+
+| Variável | Descrição | Valor Padrão |
+|----------|-----------|--------------|
+| `PORT` | Porta do servidor (gerenciada pela Railway) | `8080` |
+| `ENV_MODE` | Modo de execução | `production` |
+
+> **Nota**: A Railway automaticamente injeta a variável `PORT`, não precisa configurar manualmente.
+
+### Deploy Automático
+
+Após conectar o repositório, todo push para a branch `main` fará deploy automático.
 
 ---
 

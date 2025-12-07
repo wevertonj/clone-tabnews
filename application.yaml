@@ -5,8 +5,8 @@ openapi:
   enable: true
 
 server:
-  port: 8080
-  host: localhost
+  port: ${PORT:8080}
+  host: 0.0.0.0
 
 storage:
   provider: local  # opções: local, s3, firebase
@@ -22,5 +22,5 @@ storage:
     apiKey: 'my_api'
 
 env:
-  mode: debug
+  mode: ${ENV_MODE:production}
 

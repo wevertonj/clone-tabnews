@@ -13,5 +13,11 @@ FROM scratch
 WORKDIR /app
 COPY --from=build /runtime/ /
 COPY --from=build /app/bin/server /app/
+
+# Copia arquivos estáticos e configurações
+COPY --from=build /app/public /app/public
+COPY --from=build /app/application.yaml /app/
+
+# Railway usa a variável PORT
 EXPOSE 8080
 CMD ["./server"]
