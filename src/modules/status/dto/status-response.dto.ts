@@ -1,8 +1,8 @@
-import { StatusType } from '@/modules/status/status-type.enum';
+import { StatusType } from '../enums/status-type.enum';
 
-export type StatusJson = {
-  updated_at: string;
-  dependencies: {
+export class StatusResponseDto {
+  updated_at!: string;
+  dependencies!: {
     database: {
       status: StatusType;
       version: string;
@@ -10,4 +10,4 @@ export type StatusJson = {
       opened_connections: number;
     };
   };
-};
+}

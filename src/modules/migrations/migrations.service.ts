@@ -9,7 +9,7 @@ export class MigrationsService {
     const migrations = await migrationRunner({
       databaseUrl: process.env.DATABASE_URL as string,
       dryRun: dryRun,
-      dir: 'src/shared/infra/migrations',
+      dir: 'src/common/database/migrations',
       direction: 'up',
       migrationsTable: 'pgmigrations',
       verbose: true,

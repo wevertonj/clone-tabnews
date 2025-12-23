@@ -1,9 +1,10 @@
 
-import { Database } from '@/shared/infra/database';
+import { DatabaseService } from '@/common/database/database.service';
 
 async function cleanDatabase() {
-  const db = new Database();
+  const db = new DatabaseService();
   await db.query({ query: 'drop schema public cascade; create schema public;' });
+  await db.onModuleDestroy();
 }
 
 describe('Migrations endpoint', () => {

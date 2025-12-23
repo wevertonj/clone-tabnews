@@ -10,7 +10,7 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "services:up": "export $(cat .env | xargs) && docker compose -f src/shared/infra/compose.yaml up -d",
+    "services:up": "export $(cat .env | xargs) && docker compose -f compose.yaml up -d",
     "services:stop": "docker stop flubnews_database",
     "services:down": "docker stop flubnews_database && docker rm flubnews_database",
     "test": "jest --runInBand",

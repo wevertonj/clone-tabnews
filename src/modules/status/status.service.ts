@@ -1,15 +1,18 @@
 import { Injectable } from '@nestjs/common';
-import { Database } from '@/shared/infra/database';
-import { Status, StatusJson, StatusType } from '@/modules/status';
+import { DatabaseService } from '@/common/database/database.service';
+import { Status } from './entities/status.entity';
+import { StatusResponseDto } from './dto/status-response.dto';
+import { StatusType } from './enums/status-type.enum';
 import { isRight } from 'fp-ts/lib/Either';
 
 @Injectable()
 export class StatusService {
-  async getStatus(): Promise<StatusJson> {
-    const database = new Database();
-    const databaseVersionResult = await database.getVersion();
-    const databaseMaxConnectionsResult = await database.getMaxConnections();
-    const databaseActiveConnectionsResult = await database.getActiveConnections();
+  constructor(private readonly databaseService: DatabaseService) { }
+
+  async getStatus(): Promise<StatusResponseDto> {
+    const databaseVersionResult = await this.databaseService.getVersion();
+    const databaseMaxConnectionsResult = await this.databaseService.getMaxConnections();
+    const databaseActiveConnectionsResult = await this.databaseService.getActiveConnections();
 
     let statusType: StatusType = StatusType.ERROR;
     let version: string = '';

@@ -3,6 +3,6 @@ services:
     image: 'postgres:17.2-alpine3.21'
     container_name: flubnews_database
     env_file:
-      - ../../../.env
+      - .env
     ports:
       - '${POSTGRES_PORT}:5432'

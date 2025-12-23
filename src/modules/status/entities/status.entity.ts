@@ -1,5 +1,5 @@
-import { StatusJson } from '@/modules/status/status-json.type';
-import { StatusType } from '@/modules/status/status-type.enum';
+import { StatusResponseDto } from '../dto/status-response.dto';
+import { StatusType } from '../enums/status-type.enum';
 
 export class Status {
   updatedAt: string;
@@ -34,7 +34,7 @@ export class Status {
     this.postgresActiveConnections = activeConnections;
   }
 
-  toJSON(): StatusJson {
+  toJSON(): StatusResponseDto {
     return {
       updated_at: this.updatedAt,
       dependencies: {

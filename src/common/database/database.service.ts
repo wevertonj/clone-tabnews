@@ -1,7 +1,8 @@
 import { Pool, QueryResult } from 'pg';
 import * as dotenv from 'dotenv';
 import { Either, left, right } from 'fp-ts/lib/Either';
-import { DatabaseNotFoundError } from '@/shared/infra/database';
+import { DatabaseNotFoundError } from './database-errors';
+import { Injectable, OnModuleDestroy } from '@nestjs/common';
 
 interface VersionResult {
   version: string;
@@ -15,7 +16,8 @@ interface ActiveConnectionsResult {
   count: string;
 }
 
-export class Database {
+@Injectable()
+export class DatabaseService implements OnModuleDestroy {
   private pool: Pool;
   private databaseName: string;
 
@@ -31,6 +33,10 @@ export class Database {
       password: process.env.POSTGRES_PASSWORD,
       port: Number(process.env.POSTGRES_PORT),
     });
+  }
+
+  async onModuleDestroy() {
+    await this.pool.end();
   }
 
   async query({ query, values }: { query: string; values?: any[]; }): Promise<QueryResult<any>> {

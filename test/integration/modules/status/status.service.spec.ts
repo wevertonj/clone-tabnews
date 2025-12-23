@@ -1,11 +1,12 @@
-import { StatusJson, StatusType } from '@/modules/status';
+import { StatusResponseDto } from '@/modules/status/dto/status-response.dto';
+import { StatusType } from '@/modules/status/enums/status-type.enum';
 
 let response: Response;
-let responseBody: StatusJson;
+let responseBody: StatusResponseDto;
 
 beforeAll(async () => {
   response = await fetch('http://localhost:3000/api/status');
-  responseBody = await response.json() as StatusJson;
+  responseBody = await response.json() as StatusResponseDto;
 });
 
 describe('Status endpoint', () => {

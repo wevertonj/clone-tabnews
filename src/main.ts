@@ -8,7 +8,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { VersioningType, RequestMethod } from '@nestjs/common';
 import { FastifyAdapter } from '@nestjs/platform-fastify';
-import { extractor } from '@/shared/utils';
+import { extractor } from '@/common/utils';
 
 dotenv.config();
 
