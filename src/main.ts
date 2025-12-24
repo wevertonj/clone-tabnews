@@ -10,7 +10,7 @@ import { VersioningType, RequestMethod } from '@nestjs/common';
 import { FastifyAdapter } from '@nestjs/platform-fastify';
 import { extractor } from '@/common/utils';
 
-dotenv.config();
+dotenv.config({ quiet: true });
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, new FastifyAdapter());

@@ -22,7 +22,7 @@ export class DatabaseService implements OnModuleDestroy {
   private databaseName: string;
 
   constructor() {
-    dotenv.config();
+    dotenv.config({ quiet: true });
 
     this.databaseName = process.env.POSTGRES_DB ?? '';
 

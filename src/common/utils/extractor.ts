@@ -7,7 +7,7 @@ export function extractor(request: unknown): string | string[] {
   const versionInt = parseInt(version ?? '');
   const result: string[] = [];
 
-  dotenv.config();
+  dotenv.config({ quiet: true });
   const defaultVersion = parseInt(process.env.DEFAULT_VERSION ?? '1');
 
   if (versionInt) {
