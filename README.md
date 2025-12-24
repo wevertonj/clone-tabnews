@@ -35,23 +35,24 @@ Na raiz do projeto há um arquivo `.env.example`, que pode ser usado para criar 
 - `POSTGRES_USER`: Usuário do banco de dados.*
 - `POSTGRES_PASSWORD`: Senha do banco de dados.*
 - `POSTGRES_PORT`: Porta do banco de dados.*
+- `DATABASE_URL`: URL de conexão do banco de dados (usada para migrações e produção).*
 
 \* Estas variáveis são usadas para conectar ao banco de dados PostgreSQL.
 
 ## Docker
 
-Há um arquivo `src/shared/infra/compose.yaml` que pode ser usado para subir um container com o banco de dados PostgreSQL.
+Há um arquivo `compose.yaml` que pode ser usado para subir um container com o banco de dados PostgreSQL.
 
 Para facilitar a execução, há o seguinte script para subir o container.
 
 ```bash
-npm run docker:up
+npm run services:up
 ```
 
 Para derrubar o container, use o seguinte script.
 
 ```bash
-npm run docker:down
+npm run services:down
 ```
 
 ## Execução
